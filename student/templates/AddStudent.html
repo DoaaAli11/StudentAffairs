@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+<h2>Add Student</h2>
+<div class="container">
+    <form class="std-form" action="addStudent/" method="post">{% csrf_token %}
+        {% include 'stdform.html' %}
+
+        <input type="submit" id="add" value="Add Student">
+    </form>
+</div>
+<br>
+<script src="{% static 'RistrictedPages.js' %}"></script>
+<script src="{% static 'AddStudent.js' %}"></script>
+{% endblock content %}

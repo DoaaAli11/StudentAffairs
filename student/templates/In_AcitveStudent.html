@@ -1,0 +1,147 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block content %}
+
+<h2>Welcome to the Student Data Dashboard</h2>
+<main>
+	<section>
+		<table class="std-table">
+			<caption>Student Data Table (Active)</caption>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>DOB</th>
+					<th>GPA</th>
+					<th>Gender</th>
+					<th>Level</th>
+					<th>Status</th>
+					<th>Department</th>
+					<th>Email</th>
+					<th>mobile</th>
+					<th>Nationality</th>
+					<th>National ID</th>
+				</tr>
+			</thead>
+			<tbody class="active-stds">
+				{% for record in stds_data %}
+				{% if record.Status == "Active" %}
+				<tr>
+					<td>
+						{{ record.StuID }}
+					</td>
+					<td>
+						{{ record.StuName }}
+					</td>
+					<td>
+						{{ record.DOB }}
+					</td>
+					<td>
+						{{ record.GPA }}
+					</td>
+					<td>
+						{{ record.Gender }}
+					</td>
+					<td>
+						{{ record.level }}
+					</td>
+					<td>
+						{{ record.Status }}
+					</td>
+					<td>
+						{{ record.Department }}
+					</td>
+					<td>
+						{{ record.Email }}
+					</td>
+					<td>
+						{{ record.Mobile }}
+					</td>
+					<td>
+						{{ record.Nationality }}
+					</td>
+					<td>
+						{{ record.NationalityID }}
+					</td>
+					<!-- Add more <td> elements for each field you want to display -->
+				</tr>
+				{% endif %}
+				{% endfor %}
+			</tbody>
+		</table>
+	</section>
+	<section>
+		<table class="std-table">
+			<caption>Student Data Table (IN_Active)</caption>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>DOB</th>
+					<th>GPA</th>
+					<th>Gender</th>
+					<th>Level</th>
+					<th>Status</th>
+					<th>Department</th>
+					<th>Email</th>
+					<th>mobile</th>
+					<th>Nationality</th>
+					<th>National ID</th>
+				</tr>
+			</thead>
+			<tbody class="in-active-stds">
+				{% for record in stds_data %}
+				{% if record.Status == "Inactive" %}
+				<tr>
+					<td>
+						{{ record.StuID }}
+					</td>
+					<td>
+						{{ record.StuName }}
+					</td>
+					<td>
+						{{ record.DOB }}
+					</td>
+					<td>
+						{{ record.GPA }}
+					</td>
+					<td>
+						{{ record.Gender }}
+					</td>
+					<td>
+						{{ record.level }}
+					</td>
+					<td>
+						{{ record.Status }}
+					</td>
+					<td>
+						{{ record.Department }}
+					</td>
+					<td>
+						{{ record.Email }}
+					</td>
+					<td>
+						{{ record.Mobile }}
+					</td>
+					<td>
+						{{ record.Nationality }}
+					</td>
+					<td>
+						{{ record.NationalityID }}
+					</td>
+					<!-- Add more <td> elements for each field you want to display -->
+				</tr>
+				{% endif %}
+				{% endfor %}
+			</tbody>
+		</table>
+		<div class="back">
+			<a href="/dash_board"><button>Back</button></a>
+		</div>
+	</section>
+</main>
+
+<script src="{% static 'RistrictedPages.js' %}"></script>
+<!-- <script src="{% static 'In_ActiveStudent.js' %}"></script> -->
+{% endblock content %}
